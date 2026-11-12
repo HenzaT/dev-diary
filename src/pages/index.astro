@@ -1,4 +1,11 @@
 ---
+import "../styles/global.css";
+
+const hobbies = ['football', 'hockey', 'basketball', 'golf'];
+const songs = {
+  links: ['later', 'main-sequence', 'sundown', 'think-of-june'],
+  names: ['Later', 'Main Sequence', 'Sundown', 'Think of June'],
+};
 ---
 
 <html lang="en">
@@ -8,9 +15,18 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>DevDiary</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<h1>DevDiary</h1>
+    <h2>Hi, welcome to my page</h2>
+    <p>This page will be used to describe my songwriting and recording process.</p>
+    <a href="/about">about</a>
+    <div class="flex flex-row gap-5">
+      {songs.links.map(link => <a href={`/songs/${link}`}>{link}</a>)}
+    </div>
+    <ul>
+      {hobbies.map(hobby => <li>{hobby}</li>)}
+    </ul>
 	</body>
 </html>
