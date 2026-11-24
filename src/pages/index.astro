@@ -1,15 +1,43 @@
 ---
 import "../styles/global.css";
-import Navigation from '../components/Navigation.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const pageTitle = 'DevDiary';
-
-const songs = {
-  links: ['later', 'main-sequence', 'sundown', 'think-of-june'],
-  names: ['Later', 'Main Sequence', 'Sundown', 'Think of June'],
+const pageTitle = 'aptist notes';
+const newest = {
+  title: 'Still Morning', image: '/src/images/Still-Morning.jpg'
 };
+const songs = [
+  { title: 'Dream State', image: '/src/images/Dream-State.jpg' },
+  { title: 'Invisible', image: '/src/images/Invisible.jpeg' },
+  { title: 'Into Skies', image: '/src/images/Into-Skies.jpg' },
+  { title: 'Main Sequence', image: '/src/images/Main-Sequence.jpeg' },
+  { title: 'Later', image: '/src/images/Later.jpeg' },
+  { title: 'April Tea', image: '/src/images/April-Tea.jpg' },
+  { title: 'Reflections', image: '/src/images/Reflections.png' },
+  { title: 'Revolutions', image: '/src/images/Revolutions.jpg' },
+  { title: 'Sundown', image: '/src/images/Sundown.jpg' },
+];
 ---
+
 <BaseLayout pageTitle={pageTitle}>
-  <h2>Hello</h2>
+  <main>
+    <section class="border">
+      <header>
+        <h2>Hello</h2>
+        <div class="w-40">
+          <img src={newest.image} alt={`${newest.title} artwork`} />
+        </div>
+      </header>
+    </section>
+    <section class="my-10 flex flex-wrap items-center justify-center gap-8 border">
+      {songs.map((song) =>
+        <article class="basis-1/6">
+          <div class="w-40">
+            <img src={song.image} alt={`${song.title} artwork`} />
+          </div>
+          <h3 class="text-body">{song.title}</h3>
+        </article>
+      )}
+    </section>
+  </main>
 </BaseLayout>
